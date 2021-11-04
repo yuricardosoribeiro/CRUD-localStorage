@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="celular.css">
+    <title>Tabela de Clientes</title>
+</head>
+<body>
+    
+    <header class="elemento">
+        <div class="container-header">
+            Cadastro de Clientes
+        </div>
+    </header>
+
+    <section class="conteudo elemento">
+        <div class="container-conteudo">
+            <div class="cadastro">Cadastrar Cliente</div> <br>
+
+            <table class="tabela">
+                <tr class="header-tabela">
+                    <th class="nome">Nome</th>
+                    <th class="email">E-mail</th>
+                    <th class="celular">Celular</th>
+                    <th class="cidade">Cidade</th>
+                    <th class="acao">Ação</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="tela-cadastro">
+        <div class="container-cadastro-header">
+            <div class="novo-cliente">Novo Cliente</div>
+            <div class="close">x</div>
+        </div>
+
+        <div class="container-form">
+            <input type="text" class="input-nome" placeholder="Nome">
+            <input type="text" class="input-email" placeholder="E-mail">
+            <input type="text" class="input-celular" placeholder="Celular">
+            <input type="text" class="input-cidade" placeholder="Cidade">
+            <input type="text" class="input-id" style="display: none;" value="">
+        </div>
+
+        <div class="botoes">
+            <div class="botao-salvar">Salvar</div>
+            <div class="botao-cancelar">Cancelar</div>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>

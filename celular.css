@@ -1,0 +1,21 @@
+@media only screen and (max-width: 425px) {
+    .tela-cadastro {
+        width: 80%;
+        right: 10%;
+        left: 10%;
+        height: 250px;
+    }
+
+    input {
+        width: 80%
+    }
+
+    .conteudo {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .botao-editar {
+        margin-bottom: 3px;
+    }
+}
