@@ -18,7 +18,61 @@ document.addEventListener('click', (e) => {
     if(elemento.classList.contains('botao-editar')) {
         editarCadastro(elemento);
     }
+    if(elemento.classList.contains('ordenarCidade')) {
+        ordenaInformacoes(elemento, 'cidade');
+    }
+    if(elemento.classList.contains('ordenarNome')) {
+        ordenaInformacoes(elemento, 'nome');
+    }
 })
+
+function ordenaArray(array, chave, crescente=true) {
+    let aux;
+    
+    if(typeof crescente !== 'boolean') return;
+    
+    if(crescente) {
+      for (let i = 0; i < array.length; i++) {
+        for (let j = i; j < array.length; j++) {
+          if (array[i][chave] > array[j][chave]) {
+            aux = array[i];
+            array[i] = array[j];
+            array[j] = aux;
+          }
+        }
+      }
+    } else if (crescente == false) {
+      for (let i = array.length-1; i>-1; i--) {
+        for (let j = array.length-1; j>-1; j--) {
+          if (array[i][chave] < array[j][chave]) {
+            aux = array[i];
+            array[i] = array[j];
+            array[j] = aux;
+          }
+        }
+      }
+    }
+}
+
+function ordenaInformacoes(elemento, chave) {
+    const array = JSON.parse(localStorage.getItem('cadastros'));
+
+    if(elemento.classList.contains('crescente')) {
+        ordenaArray(array, chave, true);
+        localStorage.setItem('cadastros', JSON.stringify(array));
+        carregaCadastro();
+
+        elemento.classList.replace('crescente', 'decrescente');
+        elemento.innerText = elemento.innerText.replace('⇓', '⇑');
+    } else if(elemento.classList.contains('decrescente')) {
+        ordenaArray(array, chave, false);
+        localStorage.setItem('cadastros', JSON.stringify(array));
+        carregaCadastro();
+
+        elemento.classList.replace('decrescente', 'crescente');
+        elemento.innerText = elemento.innerText.replace('⇑', '⇓');
+    }
+}
 
 function geraID() {
     return String(Math.floor(Math.random() * (999999 - 0) + 0));
